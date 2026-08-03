@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>スパイダーソリティア移動前チェック｜候補手を比較するメモ</title>
+  <meta name="description" content="伏せ札、空き列、同一スートの連続を基準に候補手を比較する日本語チェックリスト。">
+  <style>
+  :root{--bg:#f3efe6;--paper:#fffdf8;--ink:#24231f;--green:#245f46;--gold:#b6842a;--line:#d9d0bf}*{box-sizing:border-box}body{margin:0;background:linear-gradient(120deg,#e9e2d2,#f7f4ed);color:var(--ink);font:16px/1.75 Georgia,'Yu Mincho',serif}main{max-width:820px;margin:auto;padding:52px 20px 80px}header{border-bottom:3px double var(--line);padding-bottom:24px}h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.22;margin:.2em 0}h2{color:var(--green);margin-top:2em}.panel{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:24px;margin:28px 0;box-shadow:8px 8px 0 #d8cfbd}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);padding:13px;background:white}.choice input{margin-top:7px}.score{font:700 2rem system-ui;color:var(--green)}button{border:0;background:var(--green);color:white;padding:12px 18px;border-radius:4px;font-weight:700;cursor:pointer}a{color:var(--green);font-weight:700}.small{color:#6e685d}@media(max-width:620px){.grid{grid-template-columns:1fr}}
+  </style>
+</head><body><main>
+<header><p class="small">MOVE REVIEW WORKSHEET</p><h1>移動前に10秒だけ考える<br>スパイダーソリティア候補手メモ</h1><p>「動かせる」ことと「盤面が良くなる」ことは同じではありません。候補手が複数あるとき、次の自由度を残す手を比較するための簡易シートです。</p></header>
+<section class="panel"><h2>候補手を採点する</h2><p>その手で実現できる項目を選びます。点数は絶対評価ではなく、同じ局面の候補を比べる目安です。</p><div class="grid" id="checks">
+<label class="choice"><input type="checkbox" data-points="4"><span><strong>伏せ札を1枚開ける</strong><br>新しい情報と移動先が増える。</span></label>
+<label class="choice"><input type="checkbox" data-points="3"><span><strong>空き列を作る</strong><br>長い連続や一時退避に使える。</span></label>
+<label class="choice"><input type="checkbox" data-points="2"><span><strong>同一スートをつなぐ</strong><br>分割せずに動かせる連続が伸びる。</span></label>
+<label class="choice"><input type="checkbox" data-points="1"><span><strong>次の手を2通り以上残す</strong><br>一本道になる危険を減らす。</span></label>
+<label class="choice"><input type="checkbox" data-points="-2"><span><strong>空き列をすぐ埋める</strong><br>明確な回収計画がなければ柔軟性を失う。</span></label>
+<label class="choice"><input type="checkbox" data-points="-3"><span><strong>異なるスートを重ねる</strong><br>後で分解するための手数が必要になる。</span></label>
+</div><p>比較スコア：<span class="score" id="score">0</span></p><button id="reset" type="button">チェックをリセット</button></section>
+<h2>優先順位の基本</h2><ol><li><strong>伏せ札を減らす。</strong>見えていない札が多いほど、計画の前提が崩れやすくなります。</li><li><strong>空き列を資源として扱う。</strong>完成直前の連続を置く場所ではなく、組み替えのための作業スペースです。</li><li><strong>同一スートの連続を守る。</strong>見た目の長さだけでなく、まとめて移動できるかを確認します。</li><li><strong>配札前に列の状態を整える。</strong>新しい段が加わる前に、取り戻しにくい混在を減らします。</li></ol>
+<h2>候補が同点なら</h2><p>同じ点数なら、移動後に戻せる手を優先します。まだ不確かな局面で不可逆な整理をすると、後から必要な札が出たときに手詰まりになりやすいためです。実際の盤面でこの考え方を試す場合は、日本語で遊べる <a href="https://supaida.org/">スパイダーソリティア</a> を開き、最初は1スートで「伏せ札を開く手」と「空き列を作る手」を比較すると違いを確認しやすくなります。</p>
+<h2>短い振り返り</h2><ul><li>最後に開いた伏せ札は、どの判断から生まれたか。</li><li>空き列を作ったあと、何手維持できたか。</li><li>異なるスートを重ねた場所を、回収できたか。</li></ul><p class="small">このページは独立した学習用資料です。ゲームのコード、カード画像、盤面データは含みません。</p>
+</main><script>const checks=[...document.querySelectorAll('[data-points]')],score=document.querySelector('#score');function update(){score.textContent=checks.filter(x=>x.checked).reduce((sum,x)=>sum+Number(x.dataset.points),0)}checks.forEach(x=>x.addEventListener('change',update));document.querySelector('#reset').addEventListener('click',()=>{checks.forEach(x=>x.checked=false);update()});</script></body></html>
