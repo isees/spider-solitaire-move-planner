@@ -18,6 +18,7 @@ Open `index.html` locally or use the GitHub Pages deployment.
 ## 関連する公開メモ
 
 - [スパイダーソリティア：空き列と難易度の練習メモ](https://wakelet.com/wake/Epuy4YeU04hmY9zEKClz2) — 1・2・4スートの違いと、空き列を残す判断をまとめた短い資料集。
+- [スパイダーソリティア：山札を配る前の確認メモ](https://fortunate-fossa-7e1.notion.site/3bb8afe6d65780f8a285ce8e875f5b28) — 新しい一段を配る前に確認する4項目。
 
 ## プライバシーと範囲
 
