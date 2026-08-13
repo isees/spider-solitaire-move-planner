@@ -21,6 +21,7 @@ Open `index.html` locally or use the GitHub Pages deployment.
 - [スパイダーソリティア：山札を配る前の確認メモ](https://fortunate-fossa-7e1.notion.site/3bb8afe6d65780f8a285ce8e875f5b28) — 新しい一段を配る前に確認する4項目。
 - [山札を配る前の4項目チェック](https://jsfiddle.net/cp73xzLm/) — 4項目をブラウザ内で確認できる小さな実演ページ。
 - [スパイダーソリティア：空き列を作る前の確認順](https://justpaste.app/p/supaida-empty-column-check) — 空き列を使う前に確認する順番を短く整理した公開メモ。
+- [運営中プロジェクトの公開プロフィール](https://gravatar.com/typhoonfurryedab1062a9) — Supaida を含む運営中ツールへのリンク一覧。
 
 ## プライバシーと範囲
 
